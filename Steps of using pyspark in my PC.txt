@@ -1,0 +1,38 @@
+1. Installed vs code, installed related extensions of python, git , jupyter notebook, etc. Till here we are good to run python commands with jupyter notebook support.
+
+2. 
+2.1 Created a folder of working directory. Created virtual environment in it using code :
+(code): python -m venv myvenv
+
+2.2 Activate the venv using:
+(code): myvenv\Scripts\activate
+
+3. Initilised git in the present wording directory.
+
+4. Installed pyspark package using code in vs code terminal at our environment (myenv):
+(code): pip install pyspark
+
+5. Now tried running code. This FAILED to even create a SparkSession for me. The reason after asking chatgpt i found was JAVA was not installed and the code was trying to hit JAVA to process it, since Java Runtime Env is required to execute the pyspark code. 
+
+So the solution chatgpt suggested me to verify if I have java installe first of all, if no install it, if yes, check the syste variable are correctly set or not.
+
+I found java was not set, so installed it using "OpenJdk" (which is free, as Oracle has started charging for java now).
+
+NOTE - We had to install "JDK" not the "JRE". I personally installed JDK8. While installing itself it asked me to set the variables and path, so i dont have to bother about it myself. The path where it got installed was something like this : "C:\Program Files\OpenLogic\jdk-8.0.432.06-hotspot".
+
+This same varibale was present as a system-variable in Environment-variable also but with name "path", although chatgpt suggested me it should be "JAVA_HOME" (the name of the varibale). See below quote from chatgpt:
+
+(quote): Yes, the Path variable you see with the value C:\Program Files\OpenLogic\jdk-8.0.432.06-hotspot\bin is exactly what I was referring to! It seems the JDK installer automatically added it for you during installation, which is great because you don’t need to do it manually.
+
+
+6. Finally I installed it and ran the code, "java -version" and got the output as this:
+(code output):
+(myenv) PS C:\Users\Ankit\Desktop\try_env> java -version
+openjdk version "1.8.0_432-432"
+OpenJDK Runtime Environment (build 1.8.0_432-432-b06)
+OpenJDK 64-Bit Server VM (build 25.432-b06, mixed mode)
+
+
+7. Hurray! Code ran and I got the output of csv file as well.
+
+
